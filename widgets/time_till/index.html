@@ -46,8 +46,8 @@
 
       function render(showDots) {
         let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        let minutes = Math.abs(Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)));
+        let seconds = Math.abs(Math.floor((timeRemaining % (1000 * 60)) / 1000));
         
         let separator = showDots ? ":" : " ";
 
