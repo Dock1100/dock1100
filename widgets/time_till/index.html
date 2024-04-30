@@ -46,7 +46,7 @@
 
       function render(showDots) {
         let rF = timeRemaining >= 0 ? Math.floor : Math.ceil
-        let hours = rF((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let hours = Math.abs(rF((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
         let minutes = Math.abs(rF((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)));
         let seconds = Math.abs(rF((timeRemaining % (1000 * 60)) / 1000));
         
@@ -54,7 +54,7 @@
 
         let el = document.getElementById("hours")
         if (el) {
-          el.innerText = hours;
+          el.innerText = (timeRemaining <0 ? '-' : '') + hours;
         }
 
         el = document.getElementById("minutes")
